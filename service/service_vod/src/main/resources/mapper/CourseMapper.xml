@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cui.ggkt.vod.mapper.CourseMapper">
+    <select id="courseInformationQueryInEnd" resultType="com.cui.ggkt.vo.vod.CoursePublishVo">
+        SELECT c.id         id,
+               c.title,
+               c.lesson_num lessonNum,
+               c.cover,
+               s1.title     subjectTitle,
+               s2.title     subjectParentTitle,
+               t.`name`     teacherName,
+               c.price
+        FROM course c
+                     LEFT JOIN teacher t ON c.teacher_id = t.id
+                     LEFT JOIN `subject` s1 ON s1.id = c.subject_id
+                     LEFT JOIN `subject` s2 ON s2.id = c.subject_parent_id
+        <where>
+            c.is_deleted = 0
+            <if test="courseId != null">
+               and c.id=#{courseId}
+            </if>
+        </where>
+    </select>
+</mapper>

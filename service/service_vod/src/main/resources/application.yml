@@ -1,0 +1,29 @@
+server:
+  port: 8201
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: service-vod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.215.130:3306/glkt_vod?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 111111
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.215.130:8848
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

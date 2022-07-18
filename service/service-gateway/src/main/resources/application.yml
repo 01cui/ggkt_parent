@@ -1,0 +1,15 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.215.130:8848
+    gateway:
+      routes:
+        - id: service-vod
+          uri: lb://service-vod
+          predicates:
+            - Path=/vod/**
