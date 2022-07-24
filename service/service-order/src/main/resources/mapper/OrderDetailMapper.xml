@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cui.ggkt.order.mapper.OrderDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cui.ggkt.order.entity.OrderDetail">
+        <id column="id" property="id" />
+        <result column="course_id" property="courseId" />
+        <result column="course_name" property="courseName" />
+        <result column="cover" property="cover" />
+        <result column="order_id" property="orderId" />
+        <result column="user_id" property="userId" />
+        <result column="origin_amount" property="originAmount" />
+        <result column="coupon_reduce" property="couponReduce" />
+        <result column="final_amount" property="finalAmount" />
+        <result column="session_id" property="sessionId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_deleted" property="isDeleted" />
+    </resultMap>
+
+</mapper>
